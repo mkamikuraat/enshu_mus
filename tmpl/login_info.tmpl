@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+  body { font-size:80%; background:#f0f0f0; }
+  table{ border-collapse:collapse; margin:10px 0; border-right:1px solid #000; border-bottom:1px solid #000;}
+  th,td{ border-left:1px solid #000; border-top:1px solid #000;padding:5px;}
+  th{background-color: #000;}
+</style>
+<title>homepage</title>
+</head>
+<body>
+    <h1>新規会員登録</h1>
+    <form action="../mus.php"method="post" enctype="multipart/form-data">
+      <input type="hidden" name="mode" value="post">
+      <table>
+        <tr>
+          <p>ユーザー名:<input type="text" name="username"></p>
+        </tr>
+        <tr>
+          <p>メールアドレス:<input type="text" name="mail"></p>
+        </tr>
+        <tr>
+          <p>パスワード:<input type="password" id="password" name="password" required></p>
+          <p>パスワード確認:<input type="password" id="confirm_password" name="confirm_password" required></p>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          名前:<input type="text" name="name">
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <label for="gender">性別:</label>
+          <select id="gender" name="gender">
+              <option value="male">男性</option>
+              <option value="female">女性</option>
+              <option value="other">その他</option>
+          </select>
+        </tr>
+      </table>
+      <table>
+        <label for="dob">生年月日:</label>
+        <input type="date" id="dob" name="dob">
+      </table>
+      <table>
+        <label for="address">住所</label>
+          <select id="address" name="address">
+              <option value="male">都内</option>
+              <option value="female">都外</option>
+              <option value="other">その他</option>
+      </table>
+      <table>
+        <input type="checkbox" id="terms" name="terms" required>
+      <label for="terms">利用規約とプライバシーポリシーに同意する</label>
+      </table>
+      <td><input type="submit" name="send" value=" 登録"></td>
+      <td><input type="hidden" name="mode" value="register"></td>
+    </form>
+    
+
+
+</body>
+</html>
