@@ -113,6 +113,6 @@ _POST_;
         </tr>
     </table>
     <input type="button" value="前に戻る">
-    <input type="button" value="完了">
+    <input type="button" value="登録完了">
 </body>
 </html>
