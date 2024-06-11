@@ -94,7 +94,7 @@ function post_data(){
    
     
     // dbの接続
-    $dsn = "mysql:host=localhost;dbname=mus;charaset=utf8";
+    $dsn = "mysql:host=localhost; dbname = mus; charaset=utf8";
     $user = "testuser";
     $pass = "testpass";
     // sql
@@ -126,7 +126,7 @@ function post_data(){
 # 掲示板トップの表示
 #-----------------------------------------------------------
 function bbs_data(){
-    global $homepage, $bbs_data, $tmpl_dir;
+    global  $bbs_data, $tmpl_dir;//$homepage,
     global $in;
 
     # 記事テンプレート読み込み
@@ -137,7 +137,7 @@ function bbs_data(){
  
     # データ読み込み
     # DBに接続
-    $dsn = "mysql:host=localhost;dbname=mus;charaset=utf8";
+    $dsn = "mysql:host=localhost; dbname=mus; charaset=utf8";
     $user = "testuser";
     $pass = "testpass";
 
@@ -183,9 +183,9 @@ function bbs_data(){
     fclose($conf);
  
     # 文字変換
-    $tmpl = str_replace("!block!", $data_newpost,$tmpl);
+    //$tmpl = str_replace("!block!", $data_newpost,$tmpl);
     // $tmpl = str_replace("!homepage!", $homepage,$tmpl);
-    // $tmpl = str_replace("!bbs_data!", $data_newpost, $tmpl);
+     $tmpl = str_replace("!bbs_data!", $data_newpost, $tmpl);
  
     # 掲示板表示
     echo $tmpl;
@@ -226,7 +226,7 @@ function delete(){
         update event set flag=0 where id=?;
     sql;
         $stmt = $dbh->prepare($sql);
-        $stmt->bindValue(1, $in["id"]);
+        $stmt->bindValue(1, $in["userid"]);
         $stmt->execute();
     
     }catch(PDOException $e){

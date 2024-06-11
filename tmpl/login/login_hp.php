@@ -1,9 +1,10 @@
 <?php
     
     session_start();
-    $username = "admin"; // ダミーのユーザー名
-    $password = "password"; // ダミーのパスワード
+    $username = "aaa"; // ダミーのユーザー名
+    $password = "aaa"; // ダミーのパスワード
     $error = ""; // エラーメッセージの初期化
+    $url = "";
     // ログインフォームの送信があった場合
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $entered_username = $_POST["username"];
@@ -13,13 +14,16 @@
             // セッションに管理者の情報を保存
             $_SESSION["username"] = $username;
             // ログイン成功後、管理者画面にリダイレクト
-            header("Location: admin_hp.php");
-            exit;
+            // header("Location: admin/admin_ivent/admin_hp.php");
+            $url = "../admin/admin_hp.php";
+            echo "{$url}";
+            // exit;
         } else {
-            $error = "ユーザー名またはパスワードが正しくありません。";
+            // $error = "ユーザー名またはパスワードが正しくありません。";
+            $url = "login_hp.php";
         }
     }
-    ?>
+?>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -32,7 +36,7 @@
 <title>homepage</title>
 </head>
 <body>
-    <form action="login_hp.php" method="post">
+    <form action="<?php echo "{$url}"; ?>" method="post">
         <h2>ログイン画面</h2>
         <label for="username">ユーザー名:</label>
         <input type="text" id="username" name="username" required>
@@ -53,7 +57,7 @@
     </form>
     
     <section>
-        <a href="base.tmpl" class="botan">TOPへ</a>
+        <a href="HP/base.tmpl" class="botan">TOPへ</a>
     </section>
     
 

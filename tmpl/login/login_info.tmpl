@@ -11,7 +11,7 @@
 </head>
 <body>
     <h1>新規会員登録</h1>
-    <form action="../mus.php"method="post" enctype="multipart/form-data">
+    <form action="../login/login_kanryo.php"method="post" enctype="multipart/form-data">
       <input type="hidden" name="mode" value="post">
       <table>
         <tr>
@@ -31,25 +31,22 @@
         </tr>
       </table>
       <table>
-        <tr>
-          <label for="gender">性別:</label>
-          <select id="gender" name="gender">
-              <option value="male">男性</option>
-              <option value="female">女性</option>
-              <option value="other">その他</option>
-          </select>
-        </tr>
+        <input type="radio" name="gender" value="1">男性
+        <input type="radio" name="gender" value="2">女性
+        <input type="radio" name="gender" value="3">無選択
       </table>
       <table>
         <label for="dob">生年月日:</label>
         <input type="date" id="dob" name="dob">
       </table>
       <table>
-        <label for="address">住所</label>
-          <select id="address" name="address">
-              <option value="inside">都内</option>
-              <option value="outside">都外</option>
-              <option value="others">その他</option>
+        住所:
+        <select name="address" id="address">
+          <option hidden>選択してください</option>
+          <option value="1" name="place[]">都内</option>
+          <option value="2" name="place[]">都外</option>
+          <option value="3" name="place[]">その他</option>
+        </select>
       </table>
       <table>
         <input type="checkbox" id="terms" name="terms" required>

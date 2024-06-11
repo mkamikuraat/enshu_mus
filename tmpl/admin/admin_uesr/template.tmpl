@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>確認フォーム</title>
+</head>
+<body>
+<p>
+	■お名前 ： <span>!name!</span>
+</p>
+<p>
+	■メールアドレス ： <span>!mail!</span>
+</p>
+
+<form action="admin_user_s.php" method="post">
+<input type="hidden" name="mode" value="send">
+<input type="hidden" name="name" value="!name!">
+<input type="hidden" name="email" value="!email!">
+<input type="button" value="前に戻る" onclick="history.back()">
+<input type="submit" value="送信する">
+</form>
+</body>
+</html>
