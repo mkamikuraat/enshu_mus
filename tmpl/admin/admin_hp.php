@@ -53,7 +53,7 @@ if ($role === "admin") {
         <tr>
           <td>ユーザー管理</td>
           <td>
-            <form action="admin_user.php" method="get">
+            <form action="../login/loguin_index.php" method="get">
             <button type="submit">編集</button>
             </form>
           </td>

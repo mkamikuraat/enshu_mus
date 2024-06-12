@@ -1,0 +1,84 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+  body { font-size:80%; background:#f0f0f0; }
+  table{ border-collapse:collapse; margin:10px 0; border-right:1px solid #000; border-bottom:1px solid #000;}
+  th,td{ border-left:1px solid #000; border-top:1px solid #000;padding:5px;}
+  th{background-color: #000;}
+</style>
+<title>homepage</title>
+</head>
+<body>
+    <h1>チケット購入</h1>
+    
+    <form action="" method="post">
+        <table>
+        展示種類:
+            <select name="event_type" id="event_type">
+            <option hidden>選択してください</option>
+            <option value="1" name="event_type">「夢の中庭: イマジネーションの旅」</option>
+            <option value="2" name="event_type">「色彩の奇跡: 光と影のダンス」</option>
+            <option value="3" name="event_type">「交差する世界: 文化と遺産の対話」</option>
+            <option value="4" name="event_type">「人間の軌跡: 歴史と未来の交差点」</option>
+            <option value="5" name="event_type">「自然の詩: 森と水の物語」</option>
+            </select>
+        </table>
+      <table>
+        <label for="dob">来場日:</label>
+        <input type="date" id="dob" name="dob">
+        入場時間:<select name="time">
+            <option value="1">9:00</option>
+            <option value="2">10:00</option>
+            <option value="3">11:00</option>
+            <option value="4">12:00</option>
+            <option value="5">13:00</option>
+            <option value="6">14:00</option>
+            <option value="7">15:00</option>
+            <option value="8">16:00</option>
+        </select>
+      </table>
+      
+      <table>
+        <tr>
+          名前:<input type="text" name="name">
+        </tr>
+      </table>
+      <table>
+        <input type="radio" name="gender" value="1">男性
+        <input type="radio" name="gender" value="2">女性
+        <input type="radio" name="gender" value="3">無選択
+      </table>
+      <table>
+        <label for="dob">生年月日:</label>
+        <input type="date" id="dob" name="dob">
+      </table>
+      <table>
+        住所:
+        <select name="address" id="address">
+          <option hidden>選択してください</option>
+          <option value="1" name="place[]">都内</option>
+          <option value="2" name="place[]">都外</option>
+          <option value="3" name="place[]">その他</option>
+        </select>
+      </table>
+        <table>
+            チケット種類:
+        <select name="ticket_type" id="ticket_type">
+          <option hidden>選択してください</option>
+          <option value="1" name="ticket_type">一般（65歳未満）</option>
+          <option value="2" name="ticket_type">学生(小学生以上)</option>
+          <option value="3" name="ticket_type">VIP</option>
+          <option value="4" name="ticket_type">その他</option>
+        </select>
+      </table>
+        <!-- <label for="quantity">数量:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max= 10 value="1" required><br> -->
+        <input type="submit" value="購入する">
+    </form>
+    
+
+
+
+</body>
+</html>
