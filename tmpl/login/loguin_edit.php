@@ -50,7 +50,7 @@ try {
           <option value="3" name="place[]" <?php if ($result["address"] == 3) echo "selected" ?>>その他</option>
         </select>
         <br>
-        <input type="checkbox" id="terms" name="terms" value="<?php echo htmlspecialchars($result["username"], ENT_QUOTES) ?>" required>
+        <input type="checkbox" id="terms" name="terms" value="<?php echo htmlspecialchars($result["terms"], ENT_QUOTES) ?>" required>
         利用規約とプライバシーポリシーに同意する
         <br>
       <input type="submit" name="send" value="送信">

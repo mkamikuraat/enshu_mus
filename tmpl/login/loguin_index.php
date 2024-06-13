@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>ユーザー管理一覧</h1>
-    <a href="tmpl/admin/admin_hp.php">管理者画面に戻る</a>
+    <a href="../admin/admin_hp.php">管理者画面に戻る</a>
     <br>
     <a href="loguin_form.html">ユーザーの新規登録</a>
     <?php
@@ -55,7 +55,7 @@ try {
         echo '<td>' . $gender . '</td>' . PHP_EOL;
         echo '<td>' . PHP_EOL;
         echo '<a href = "loguin_detail.php?id=' . htmlspecialchars($row["id"],ENT_QUOTES) . '">詳細</a>' . PHP_EOL;
-        echo '|<a href = "loguin_edit.php?id=' . htmlspecialchars($row["id"],ENT_QUOTES) . '">変更</a>' . PHP_EOL;
+        echo '|<a href = "loguin_edit.php?id=' . htmlspecialchars($row["id"],ENT_QUOTES) . '">編集</a>' . PHP_EOL;
         echo '|<a href = "loguin_delete.php?id=' . htmlspecialchars($row["id"],ENT_QUOTES) . '">削除</a>' . PHP_EOL;
         echo '</td>' . PHP_EOL;
         echo '</tr>' . PHP_EOL; 

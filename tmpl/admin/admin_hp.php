@@ -43,7 +43,7 @@ if ($role === "admin") {
         <tr>
           <td>チケット管理</td>
           <td>
-            <form action="admin_ticket.tmpl" method="get">
+            <form action="./admin_ticket/ticket_index.php" method="get">
             <button type="submit">編集</button>
             </form>
           </td>

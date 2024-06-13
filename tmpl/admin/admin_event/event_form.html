@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+  body { font-size:80%; background:#f0f0f0; }
+  table{ border-collapse:collapse; margin:10px 0; border-right:1px solid #000; border-bottom:1px solid #000;}
+  th,td{ border-left:1px solid #000; border-top:1px solid #000;padding:5px;}
+  th{background-color: #000;}
+  
+</style>
+<title>homepage</title>
+<!-- <script>
+    function addEditor() {
+        var table = document.getElementById("editorsTable");
+        var row = table.insertRow(); // 新しい行を追加
+        var cell1 = row.insertCell(0); // 最初のセルを追加
+        var cell2 = row.insertCell(1); // 2番目のセルを追加
+        cell1.innerHTML = "編集者:"; // セルにテキストを設定
+        cell2.innerHTML = '<input type="text" name="editor[]">'; // セルに入力フィールドを追加
+    }
+</script> -->
+</head>
+<body>
+    <h1>展示・イベント管理一覧</h1>
+    <form action="loguin_add.php"method="post" enctype="multipart/form-data">
+      <input type="hidden" name="mode" value="post">
+      <table>
+        <tr>
+          <p>タイトル:<input type="text" name="title"></p>
+        </tr>
+        <tr>
+            開催期間:  
+              <label for="dob_s">開始日</label><input type="date" id="dob_s" name="dob_s">
+                ~  
+              <label for="dob_e">終了日</label><input type="date" id="dob_e" name="dob_e">
+        </tr>
+        <br>
+        展示場所:
+            <select name="space" id="space">
+              <option hidden>選択してください</option>
+              <option value="1" name="space">展示室１</option>
+              <option value="2" name="space">展示室２</option>
+              <option value="3" name="space">展示室３</option>
+            </select>
+        <tr>
+            <p>解説:</p>
+            <textarea name="text" cols="40" rows="10" maxlength="320"></textarea>
+        </tr>
+        
+      </table>
+      <table id="edit">
+        <tr>
+          編集者:<input type="text" name="editname">
+        </tr>
+        <button type="button" onclick="addEditor()">編集者を追加</button>
+      </table>
+      <table>
+        <label for="dob">最終編集日:</label>
+        <input type="date" id="dob" name="dob">
+      </table>
+      
+      <td><input type="submit" name="send" value=" 登録"></td>
+      <td><input type="hidden" name="mode" value="register"></td>
+    </form>
+    
+    <div id="inputs-container">
+      <!-- ここに追加されるinput要素が表示されます -->
+    </div>
+    
+    <button onclick="addInput()">追加のボタン</button>
+    
+    <script>
+    function addInput() {
+      var inputsContainer = document.getElementById('inputs-container');
+      
+      // 新しいinput要素を生成
+      var newInput = document.createElement('input');
+      newInput.type = 'text';
+      
+      // 生成したinput要素をコンテナに追加
+      inputsContainer.appendChild(newInput);
+    }
+    </script>
+    
+
+</body>
+
+</html>

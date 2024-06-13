@@ -6,39 +6,56 @@
   table{ border-collapse:collapse; margin:10px 0; border-right:1px solid #000; border-bottom:1px solid #000;}
   th,td{ border-left:1px solid #000; border-top:1px solid #000;padding:5px;}
   th{background-color: #000;}
+  /* 初期状態では日付入力欄を非表示にする */
+  #dobContainer {
+        display: none;
+    }
 </style>
 <title>homepage</title>
+
 </head>
 <body>
     <h1>チケット購入</h1>
     
-    <form action="" method="post">
+    <form action="ticket_add.php" method="post">
+      
         <table>
         展示種類:
-            <select name="event_type" id="event_type">
-            <option hidden>選択してください</option>
-            <option value="1" name="event_type">「夢の中庭: イマジネーションの旅」</option>
-            <option value="2" name="event_type">「色彩の奇跡: 光と影のダンス」</option>
-            <option value="3" name="event_type">「交差する世界: 文化と遺産の対話」</option>
-            <option value="4" name="event_type">「人間の軌跡: 歴史と未来の交差点」</option>
-            <option value="5" name="event_type">「自然の詩: 森と水の物語」</option>
+            <select name="eventtype" id="eventtype" onchange="setDateRestriction()">
+                <option hidden>選択してください</option>
+                <option value="1" name="eventtype">「夢の中庭: イマジネーションの旅」</option>
+                <option value="2" name="eventtype">「色彩の奇跡: 光と影のダンス」</option>
+                <option value="3" name="eventtype">「交差する世界: 文化と遺産の対話」</option>
+                <option value="4" name="eventtype">「人間の軌跡: 歴史と未来の交差点」</option>
+                <option value="5" name="eventtype">「自然の詩: 森と水の物語」</option>
             </select>
         </table>
       <table>
-        <label for="dob">来場日:</label>
-        <input type="date" id="dob" name="dob">
+          <label for="dob_c">来場日:</label>
+          <input type="date" id="dob_c" name="dob_c">
+        
+        
         入場時間:<select name="time">
-            <option value="1">9:00</option>
-            <option value="2">10:00</option>
-            <option value="3">11:00</option>
-            <option value="4">12:00</option>
-            <option value="5">13:00</option>
-            <option value="6">14:00</option>
-            <option value="7">15:00</option>
-            <option value="8">16:00</option>
+            <option value="1" name="time">9:00</option>
+            <option value="2" name="time">10:00</option>
+            <option value="3" name="time">11:00</option>
+            <option value="4" name="time">12:00</option>
+            <option value="5" name="time">13:00</option>
+            <option value="6" name="time">14:00</option>
+            <option value="7" name="time">15:00</option>
+            <option value="8" name="time">16:00</option>
         </select>
       </table>
-      
+      <table>
+        チケット種類:
+    <select name="tickettype" id="tickettype">
+      <option hidden>選択してください</option>
+      <option value="1" name="tickettype">一般（65歳未満）</option>
+      <option value="2" name="tickettype">学生(小学生以上)</option>
+      <option value="3" name="tickettype">VIP</option>
+      <option value="4" name="tickettype">その他</option>
+    </select>
+  </table>
       <table>
         <tr>
           名前:<input type="text" name="name">
@@ -62,23 +79,44 @@
           <option value="3" name="place[]">その他</option>
         </select>
       </table>
-        <table>
-            チケット種類:
-        <select name="ticket_type" id="ticket_type">
-          <option hidden>選択してください</option>
-          <option value="1" name="ticket_type">一般（65歳未満）</option>
-          <option value="2" name="ticket_type">学生(小学生以上)</option>
-          <option value="3" name="ticket_type">VIP</option>
-          <option value="4" name="ticket_type">その他</option>
-        </select>
-      </table>
-        <!-- <label for="quantity">数量:</label>
-        <input type="number" id="quantity" name="quantity" min="1" max= 10 value="1" required><br> -->
-        <input type="submit" value="購入する">
+        
+        <input type="submit" value="前に戻る">
+        <input type="submit" value="確認画面に進む">
     </form>
     
-
-
-
 </body>
+<script>
+  function setDateRestriction() {
+      var eventType = document.getElementById("eventtype").value;
+      var dateInput = document.getElementById("dob_c");
+  
+      switch (eventType) {
+          case "1":
+              dateInput.min = "2024-07-01"; 
+              dateInput.max = "2024-07-15"; 
+              break;
+          case "2":
+              dateInput.min = "2024-07-16"; 
+              dateInput.max = "2024-07-31";
+              break;
+          case "3":
+              dateInput.min = "2024-06-16";
+              dateInput.max = "2024-08-31";
+              break;
+          case "4":
+              dateInput.min = "2024-06-19";
+              dateInput.max = "2024-10-31";
+              break;
+          case "5":
+              dateInput.min = "2024-09-01";
+              dateInput.max = "2024-12-27"; 
+              break;
+          default:
+              // デフォルトの制限（特になし）
+              dateInput.min = ""; // 制限なし
+              dateInput.max = ""; // 制限なし
+              break;
+      }
+  }
+  </script>
 </html>
