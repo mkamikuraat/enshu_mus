@@ -9,20 +9,11 @@
   
 </style>
 <title>homepage</title>
-<!-- <script>
-    function addEditor() {
-        var table = document.getElementById("editorsTable");
-        var row = table.insertRow(); // 新しい行を追加
-        var cell1 = row.insertCell(0); // 最初のセルを追加
-        var cell2 = row.insertCell(1); // 2番目のセルを追加
-        cell1.innerHTML = "編集者:"; // セルにテキストを設定
-        cell2.innerHTML = '<input type="text" name="editor[]">'; // セルに入力フィールドを追加
-    }
-</script> -->
+
 </head>
 <body>
     <h1>展示・イベント管理一覧</h1>
-    <form action="loguin_add.php"method="post" enctype="multipart/form-data">
+    <form action="event_add.php"method="post" enctype="multipart/form-data">
       <input type="hidden" name="mode" value="post">
       <table>
         <tr>
@@ -52,37 +43,16 @@
         <tr>
           編集者:<input type="text" name="editname">
         </tr>
-        <button type="button" onclick="addEditor()">編集者を追加</button>
+        <!-- <button type="button" onclick="addEditor()">編集者を追加</button> -->
       </table>
       <table>
-        <label for="dob">最終編集日:</label>
-        <input type="date" id="dob" name="dob">
+        <tr>
+          <label for="dob">締切日</label><input type="date" id="dob" name="dob">
+        </tr>
       </table>
-      
       <td><input type="submit" name="send" value=" 登録"></td>
       <td><input type="hidden" name="mode" value="register"></td>
     </form>
-    
-    <div id="inputs-container">
-      <!-- ここに追加されるinput要素が表示されます -->
-    </div>
-    
-    <button onclick="addInput()">追加のボタン</button>
-    
-    <script>
-    function addInput() {
-      var inputsContainer = document.getElementById('inputs-container');
-      
-      // 新しいinput要素を生成
-      var newInput = document.createElement('input');
-      newInput.type = 'text';
-      
-      // 生成したinput要素をコンテナに追加
-      inputsContainer.appendChild(newInput);
-    }
-    </script>
-    
-
 </body>
 
 </html>

@@ -20,13 +20,13 @@
         if ($_POST["eventtype"] == "1") {
             $eventtype = "「夢の中庭: イマジネーションの旅」";
         } elseif ($_POST["eventtype"] == "2") {
-            $eventtyper = "「色彩の奇跡: 光と影のダンス」";
+            $eventtype = "「色彩の奇跡: 光と影のダンス」";
         } elseif ($_POST["eventtype"] == "3") {
-            $eventtyper = "「交差する世界: 文化と遺産の対話」";
+            $eventtype = "「交差する世界: 文化と遺産の対話」";
         } elseif ($_POST["eventtype"] == "4") {
-            $eventtyper = "「人間の軌跡: 歴史と未来の交差点」";
+            $eventtype = "「人間の軌跡: 歴史と未来の交差点」";
         } elseif ($_POST["eventtype"] == "5") {
-            $eventtyper = "「自然の詩: 森と水の物語」";
+            $eventtype = "「自然の詩: 森と水の物語」";
         }
         
         //$tickettype = htmlspecialchars($_POST["tickettype"], ENT_QUOTES);

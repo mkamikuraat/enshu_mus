@@ -1,0 +1,46 @@
+<?php
+$dsn = 'mysql:host=localhost; dbname=mus; charset=utf8';
+$user = 'testuser';
+$pass = 'testpass';
+if (empty($_GET["id"])){
+    echo "IDを正しく入力してください";
+    exit;
+}
+try {
+    $id = (int)$_GET["id"];
+    $dbh = new PDO($dsn, $user, $pass);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $sql = 'SELECT * FROM  event where id = ?';
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(1, $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    echo "確認画面" . "<br>";
+    echo "ID:" . htmlspecialchars($result["id"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    echo "タイトル:" . htmlspecialchars($result["title"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    echo "更新日:" . htmlspecialchars($result["time"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    echo "開始日:" . htmlspecialchars($result["dob_s"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    echo "終了日:" . htmlspecialchars($result["dob_e"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    $space = '';
+        if ($result['space'] == "1") {
+            $space = "展示室１";
+        } else if ($result['space'] == "2") {
+            $space = "展示室２";
+        } else if ($result['space'] == "3") {
+            $space = "展示室３";
+        } else {
+            $espace = "不明";
+        }
+        echo '<td>展示場所：' . $space . '</td>' . PHP_EOL;
+    echo '<br>';
+    echo "" . htmlspecialchars($result["text"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    echo "編集者：" . htmlspecialchars($result["editname"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    echo "締切日：" . htmlspecialchars($result["dob"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    echo '<br>';
+    
+    $dbh = null;
+} catch (PDOException $e) {
+    echo "エラー発生：" . htmlspecialchars($e->getMessage(), ENT_QUOTES) . '<br>';
+    exit;
+}
+?>

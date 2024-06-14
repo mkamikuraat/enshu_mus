@@ -33,7 +33,8 @@
                 $_SESSION["username"] = $username;
                 // ログイン成功後、管理者画面にリダイレクト
                 // header("Location: admin/admin_ivent/admin_hp.php");
-                $url = "../admin/admin_hp.php";
+                header("Location: ../admin/admin_hp.php"); // 修正箇所：直接 URL を指定
+                //$url = "../admin/admin_hp.php";
                 echo "{$url}";
                 // exit;
             } else if($entered_username == $username || $entered_password == $password) {

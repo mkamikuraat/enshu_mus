@@ -20,7 +20,7 @@
             // exit;
         } else {
             // $error = "ユーザー名またはパスワードが正しくありません。";
-            $url = "login_hp.php";
+            $url = "loguin_hp.php";
         }
     }
 ?>

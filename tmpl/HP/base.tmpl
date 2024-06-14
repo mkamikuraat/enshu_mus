@@ -7,11 +7,22 @@
     <link rel="stylesheet" href="base.css">
     </head>
     <body>
-        <!-- <a href="!homepage!"> ホームに戻る</a> -->
-    <h1 id="title"> 神倉美術館</h1>
- 
     
-    <form action="../mus.php" method="get" enctype="multipart/form-data">
+ 
+    <header>
+        <h1 id="title"> <a href="base.tmpl">神倉美術館</a></h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="event_hp.tmpl">展覧会・イベント</a></li>
+                <li><a href="./ticket_hp.tmpl">チケット購入</a></li>
+                <li><a href="access_hp.tmpl">アクセス</a></li>
+                <li><a href="../login/loguin_hp.php">ログイン画面</a></li>
+                <li><a href="fqa_hp.tmpl">お問い合わせ</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <!-- <form action="../mus.php" method="get" enctype="multipart/form-data">
         <input type="hidden" name="mode" value="get">
         <ul class="tagu">
             <li>
@@ -35,21 +46,23 @@
                 </form>
             </li>
             <li>
-                <form action="../login/login_hp.php" method="get">
+                <form action="../login/loguin_hp.php" method="get">
                     <button type="submit">ログイン画面</button>
                 </form>
             </li>
         </ul>
-    </form>
-    <table>
-        <tr>
-            <td>ha</td>
-        </tr>
-    </table>
-    
-    <section>
-        <a href="#" class="botan">TOPへ</a>
-    </section>
+    </form> -->
+    <main>
+        <img src="../../img/kujira.png" alt="クジラ">
+    </main>
+    <footer>
+        <div class="gotop">
+            <a href="#top"><img src="../../img/top.png" alt="ページトップへ戻る"></a>
+        </div>
+        <div>
+            <p class="copyright">&copy; KAMIKURA MUSEUM</p>
+        </div>
+    </footer>
 
     </body>
     </html>
