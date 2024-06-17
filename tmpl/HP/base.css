@@ -1,10 +1,15 @@
+.form {color: rgba(230, 89, 34, 0.795);}
+
 a{
     text-decoration: none;
     color: inherit;
 }
-
-#title {foncolor:#152d48; font-size: 50px; text-align: center;}
-body,td,th { font-size:80%; background:#fafbfb; }
+.header {
+    padding-top: 40px; background-image: url(../../img/stripe.png); background-repeat: repeat-x;
+}
+#title {color:#253958; font-size: 50px; text-align: center;}
+main h2 {border-bottom: 2px solid #253958;}
+body,td,th { font-size:100%; background:#f0f0f0; }
 .botan{
     color: white;
     width : 50px;
@@ -16,16 +21,16 @@ body,td,th { font-size:80%; background:#fafbfb; }
     display :block;
     border-radius: 15px;
 }
-
+.upup {color: red;}
 /* *{
  display: center;
 } */
-.botan:hover{
+/* .botan:hover{
     color: #152d48;
     background-color: white;
     border: 1px outset black;
     padding-top: 50px;
-}
+} */
 
 .nav ul {
     margin: 30px 0 0 0;
@@ -36,16 +41,7 @@ body,td,th { font-size:80%; background:#fafbfb; }
     justify-content: center;
     gap: 40px;
 }
-/* 
-.tagu{
-    display: flex;
-    justify-content: space-between;
-    width: 800px;  
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 50px;
-    text-decoration: none;
-} */
+
 li{
     list-style: none;
 }

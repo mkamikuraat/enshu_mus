@@ -1,20 +1,27 @@
 <?php
 session_start();
 
+
 // ログインしていない場合はログインページにリダイレクト
-if (!isset($_SESSION["username"])) {
+if (!($_POST["username"] == "usera")) {
     header("Location: loguin_hp.php");
     exit;
+}else{
+    $_SESSION["username"] = $_POST["username"];
 }
 if (isset($_POST["username"])) {
     setcookie($_POST['username']);
 }
+// if ("admin"){
 
+// }else if ("admin"){
+
+// }
 // var_dump($_POST);
 
 // ログイン中のユーザーを表示
 // echo "ようこそ！ " . $_SESSION["username"] . "さん";
-echo "ようこそ！ " . $_POST["username"] . "さん";
+echo "ようこそ！ " . $_SESSION["username"] . "さん";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +35,7 @@ echo "ようこそ！ " . $_POST["username"] . "さん";
 </head>
 <body>
     <p>マイページ</p>
-    
+    <a href="../admin/admin_hp.php"></a>
     <form action="../admin/admin_ticket/admin_ticket.html" method="get">
         <button type="submit">チケット購入</button>
     </form>

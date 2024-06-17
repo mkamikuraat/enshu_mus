@@ -3,8 +3,20 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <style type="text/css">
   body { background:#f0f0f0; }
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  #title {color:#253958; font-size: 50px;text-align: center;}
+  main h2 {border-bottom: 2px solid #253958;}
   .nav ul {margin: 30px 0 0 0; padding: 0; list-style-type: none;
     display: flex; justify-content: center; gap: 40px;}
+  .map {
+    text-align: center;
+    }
+    .map img{
+      width: 80vw;
+    }
   .gotop {
     text-align: center; display: flex; justify-content: center;}
   .gotop a img{ width: 100px;}
@@ -23,7 +35,7 @@
     <h1 id="title"> <a href="base.tmpl">神倉美術館</a></h1>
     <nav class="nav">
         <ul>
-            <li><a href="event_hp.tmpl">展覧会・イベント</a></li>
+            <li><a href="./event/index.php">展覧会・イベント</a></li>
             <li><a href="./ticket_hp.tmpl">チケット購入</a></li>
             <li><a href="access_hp.tmpl">アクセス</a></li>
             <li><a href="../login/loguin_hp.php">ログイン画面</a></li>
@@ -33,11 +45,12 @@
     
 </header>   
  <main>
-  <img src="" alt="地図">
-  <p>
-    〒000-0000 東京都千代田区内幸町0-0-0
-    TEL: 0-0000-0000
-  </p>
+  <div class="map">
+    <img src="../../img/map.png" alt="地図">
+  </div>
+  <h2>住所</h2>
+  <p>〒000-0000 東京都千代田区内幸町0-0-0</p>
+  <p>TEL: 0-0000-0000</p>
   <h2>電車でお越しの方</h2>
   <ul>
     <li>○○線 徒歩3分</li>

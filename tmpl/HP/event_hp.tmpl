@@ -10,8 +10,47 @@
 <title>homepage</title>
 </head>
 <body>
-    hahaha
-    
+    <h1>展示・イベント一覧</h1>
+    <form action="event_add.php"method="post" enctype="multipart/form-data">
+      <input type="hidden" name="mode" value="post">
+      <table>
+        <tr>
+          <p>タイトル:<input type="text" name="title"></p>
+        </tr>
+        <tr>
+            開催期間:  
+              <label for="dob_s">開始日</label><input type="date" id="dob_s" name="dob_s">
+                ~  
+              <label for="dob_e">終了日</label><input type="date" id="dob_e" name="dob_e">
+        </tr>
+        <br>
+        展示場所:
+            <select name="space" id="space">
+              <option hidden>選択してください</option>
+              <option value="1" name="space">展示室１</option>
+              <option value="2" name="space">展示室２</option>
+              <option value="3" name="space">展示室３</option>
+            </select>
+        <tr>
+            <p>解説:</p>
+            <textarea name="text" cols="40" rows="10" maxlength="320"></textarea>
+        </tr>
+        
+      </table>
+      <table id="edit">
+        <tr>
+          編集者:<input type="text" name="editname">
+        </tr>
+        <!-- <button type="button" onclick="addEditor()">編集者を追加</button> -->
+      </table>
+      <table>
+        <tr>
+          <label for="dob">締切日</label><input type="date" id="dob" name="dob">
+        </tr>
+      </table>
+      <td><input type="submit" name="send" value=" 登録"></td>
+      <td><input type="hidden" name="mode" value="register"></td>
+    </form>
 
 
 </body>

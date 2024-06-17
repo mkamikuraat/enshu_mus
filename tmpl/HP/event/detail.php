@@ -15,10 +15,9 @@ try {
     $stmt->bindValue(1, $id, PDO::PARAM_INT);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    echo "確認画面" . "<br>";
-    echo "ID:" . htmlspecialchars($result["id"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    echo "<h2>展示・イベント</h2>" . "<br>";
+    //echo "ID:" . htmlspecialchars($result["id"],ENT_QUOTES) . '<br>' . PHP_EOL;
     echo "タイトル:" . htmlspecialchars($result["title"],ENT_QUOTES) . '<br>' . PHP_EOL;
-    echo "更新日:" . htmlspecialchars($result["time"],ENT_QUOTES) . '<br>' . PHP_EOL;
     echo "開始日:" . htmlspecialchars($result["dob_s"],ENT_QUOTES) . '<br>' . PHP_EOL;
     echo "終了日:" . htmlspecialchars($result["dob_e"],ENT_QUOTES) . '<br>' . PHP_EOL;
     $space = '';
@@ -34,8 +33,6 @@ try {
         echo '<td>展示場所：' . $space . '</td>' . PHP_EOL;
     echo '<br>';
     echo "" . htmlspecialchars($result["text"],ENT_QUOTES) . '<br>' . PHP_EOL;
-    echo "編集者：" . htmlspecialchars($result["editname"],ENT_QUOTES) . '<br>' . PHP_EOL;
-    echo "締切日：" . htmlspecialchars($result["dob"],ENT_QUOTES) . '<br>' . PHP_EOL;
     echo '<br>';
     
     $dbh = null;
@@ -55,6 +52,8 @@ try {
     <title>Document</title>
 </head>
 <body>
-    
+    <a href="index.php">展示・イベント一覧へ戻る</a>
+    <br>
+    <a href="../base.tmpl"> TOPへ</a>
 </body>
 </html>

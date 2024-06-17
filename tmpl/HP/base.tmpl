@@ -9,11 +9,11 @@
     <body>
     
  
-    <header>
+    <header class="header">
         <h1 id="title"> <a href="base.tmpl">神倉美術館</a></h1>
         <nav class="nav">
             <ul>
-                <li><a href="event_hp.tmpl">展覧会・イベント</a></li>
+                <li><a href="../HP/event/index.php">展覧会・イベント</a></li>
                 <li><a href="./ticket_hp.tmpl">チケット購入</a></li>
                 <li><a href="access_hp.tmpl">アクセス</a></li>
                 <li><a href="../login/loguin_hp.php">ログイン画面</a></li>
@@ -22,38 +22,47 @@
         </nav>
         
     </header>
-    <!-- <form action="../mus.php" method="get" enctype="multipart/form-data">
-        <input type="hidden" name="mode" value="get">
-        <ul class="tagu">
-            <li>
-                <form action="event_hp.tmpl" method="get">
-                    <button type="button" onclick="location.href='event_hp.tmpl'">展覧会・イベント</button>
-                </form>
-            </li>
-            <li>
-                <form action="./ticket_hp.tmpl" method="get">
-                    <button type="submit">チケット購入</button>
-                </form>
-            </li>
-            <li>
-                <form action="access_hp.tmpl" method="get">
-                    <button type="submit">アクセス</button>
-                </form>
-            </li>
-            <li>
-                <form action="fqa_hp.tmpl" method="get">
-                    <button type="submit">お問い合わせ</button>
-                </form>
-            </li>
-            <li>
-                <form action="../login/loguin_hp.php" method="get">
-                    <button type="submit">ログイン画面</button>
-                </form>
-            </li>
-        </ul>
-    </form> -->
+    
     <main>
         <img src="../../img/kujira.png" alt="クジラ">
+        <div>
+            <h2>利用案内</h2>
+            <table>
+                <tr>
+                    <th>住所</th>
+                    <td>〒000-0000 東京都千代田区内幸町0-0-0(<a class="form" href="../../img/map.png">地図</a>)</td>
+                </tr>
+                <tr>
+                    <th>電話番号</th>
+                    <td>0-0000-0000</td>
+                </tr>
+                <tr>
+                    <th>営業時間</th>
+                    <td>10:00 ~ 17:00</td>
+                </tr>
+                <tr>
+                    <th>定休日</th>
+                    <td>月曜日・祝日</td>
+                </tr>
+                <tr>
+                    <th>お問い合わせ</th>
+                    <td>お問い合わせはお電話もしくは<a class="form" href="access_hp.tmpl">お問い合わせフォーム</a>より受け付けております。※フォームからのお問い合わせにはお時間がかかる場合がございますので、ご了承ください。</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h2>入館料・観覧料</h2>
+            <p>※展覧会により異なります。</p>
+            <p class="upup">展示・イベント情報をご確認ください。</p>
+            <br>
+            <p>＜特別展示観覧料＞</p>
+            <p>一般 650円(450円)</p>
+            <p>学生 450円(300円)</p>
+            <p>※（  ）内は団体20名以上料金</p>
+            <p>※65歳以上の方は半額（年齢を証明できるものが必要）</p>
+            <p>※20名様以上は、団体割引が適用されます</p>
+            <p>※障がい者手帳をお持ちの方は半額、引率者1名のみ無料</p>
+        </div>
     </main>
     <footer>
         <div class="gotop">

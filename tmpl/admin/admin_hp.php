@@ -4,7 +4,7 @@ session_start();
 
 // セッションに管理者の情報がない場合はログインページにリダイレクト
 if (!isset($_SESSION["username"])) {
-    header("Location: loguin_hp.php");
+    header("Location: ../login/loguin_hp.php");
     exit;
 }
 
@@ -14,7 +14,7 @@ $role = "admin";
 if ($role === "admin") {
  ?>
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="ja">
     <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <style type="text/css">
@@ -60,7 +60,7 @@ if ($role === "admin") {
         </tr>
       </table>
     <!-- ログアウトリンクを設置 -->
-    <form action="" method="post">
+    <form action="../login/loguin_logout.html" method="post">
         <input type="submit" name="logout" value="ログアウト">
     </form>
     </body>
@@ -68,7 +68,7 @@ if ($role === "admin") {
 <?php
 } else {
     // それ以外の権限の場合は別のページにリダイレクトするなどの処理を追加する
-    header("Location: user.php");
+    header("Location: ../login/loguin_hp.php");
     exit;
 }
 ?>
