@@ -36,6 +36,7 @@ echo "ようこそ！ " . $_SESSION["username"] . "さん";
 <body>
     <p>マイページ</p>
     <a href="../admin/admin_hp.php"></a>
+    <?php echo $_SESSION["username"];?>
     <form action="../admin/admin_ticket/admin_ticket.html" method="get">
         <button type="submit">チケット購入</button>
     </form>

@@ -55,6 +55,7 @@ try {
     <title>Document</title>
 </head>
 <body>
-    
+    <a href="javascript:history.back()">前のページに戻る</a>
+
 </body>
 </html>

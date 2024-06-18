@@ -38,10 +38,8 @@ try {
 <body>
     ユーザー管理<br>
     <form action="ticket_update.php?id=<?=htmlspecialchars($result["id"], ENT_QUOTES) ?>" method="post">
-        ユーザー名:<input type="text" id="username" name="username" value="<?php echo htmlspecialchars($result["username"], ENT_QUOTES) ?>"><br>
-        パスワード:<input type="password" id="password" name="password" value="<?php echo htmlspecialchars($result["password"], ENT_QUOTES) ?>" required><br>
         展示種類:
-        <select name="eventtype" id="eventtype"  onchange="setDateRestriction()">
+        <select name="eventtype" id="eventtype">
           <option hidden>選択してください</option>
           <option value="1" name="eventtype" <?php if ($result["eventtype"] == 1) echo "selected" ?>>「夢の中庭: イマジネーションの旅」</option>
           <option value="2" name="eventtype" <?php if ($result["eventtype"] == 2) echo "selected" ?>>「色彩の奇跡: 光と影のダンス」</option>
@@ -96,38 +94,4 @@ try {
       <input type="hidden" name="mode" value="register">
     </form>
 </body>
-<script>
-  function setDateRestriction() {
-      var eventType = document.getElementById("eventtype").value;
-      var dateInput = document.getElementById("dob_c");
-  
-      switch (eventType) {
-          case "1":
-              dateInput.min = "2024-07-01"; 
-              dateInput.max = "2024-07-15"; 
-              break;
-          case "2":
-              dateInput.min = "2024-07-16"; 
-              dateInput.max = "2024-07-31";
-              break;
-          case "3":
-              dateInput.min = "2024-06-16";
-              dateInput.max = "2024-08-31";
-              break;
-          case "4":
-              dateInput.min = "2024-06-19";
-              dateInput.max = "2024-10-31";
-              break;
-          case "5":
-              dateInput.min = "2024-09-01";
-              dateInput.max = "2024-12-27"; 
-              break;
-          default:
-              // デフォルトの制限（特になし）
-              dateInput.min = ""; // 制限なし
-              dateInput.max = ""; // 制限なし
-              break;
-      }
-  }
-  </script>
 </html>

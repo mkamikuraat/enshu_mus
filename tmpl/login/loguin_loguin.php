@@ -22,24 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // データベースからユーザー情報を取得
     $stmt = $dbh->prepare("SELECT * FROM users WHERE username = ?");
+    
     $stmt->execute([$entered_username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
-    // if ($user && password_verify($entered_password, $user["password"])) {
-    //     // 認証成功：セッションにユーザー名を保存
-    //     $_SESSION["username"] = $user["username"];
-    //     echo "ログイン成功。";
-    //     echo "ようこそ！ " . $user["username"] . "さん";
-    //     // ログイン成功後の処理を記述（例：別のページにリダイレクトなど）
-    // } else {
-    //     // 認証失敗：エラーメッセージを表示するなど適切な処理を行う
-    //     echo "ユーザー名またはパスワードが正しくありません。566";
-    //     //header("Location: loguin_hp.php");
-        
-        
-    // }
-    //echo "ようこそ！ " . $user["username"] . "さん";
+    $stmt2 = $dbh->prepare("SELECT * FROM ticket WHERE username = ?");
+    $stmt2->execute([$entered_username]);
+    $user2 = $stmt2->fetch(PDO::FETCH_ASSOC);
+    
+    
 }
 
 ?>
@@ -49,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style type="text/css">
+        .form1 {color: rgba(230, 89, 34, 0.795);}
         .header {padding-top: 40px; background-image: url(../../../img/stripe.png); background-repeat: repeat-x;}
         body { font-size:100%; background:#f0f0f0; }
         .detail {color: #253958;}
@@ -72,6 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-bottom: 40px;
             padding: 10px;
         }
+        .form{
+            border: #000 solid 1px;
+            padding: 4px;
+        }
     </style>
     <title>マイページ</title>
 </head>
@@ -90,43 +86,141 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="../admin/admin_hp.php"></a>
     </header>
     <main>
-    <?php
-        if($user["password"] == $entered_password && $user['is_admin']==1){
-            echo"aaaaaaaa";
-            header("Location: ../admin/admin_hp.php");
-        }
-        else if ($user["password"] == $entered_password) {
-            // 認証成功：セッションにユーザー名を保存
-            $_SESSION["username"] = $user["username"];
-            //echo "ログイン成功。";
-            echo "<h2>" . "ようこそ！ " . $user["username"] . "さん" . "</h2>";
-            // ログイン成功後の処理を記述（例：別のページにリダイレクトなど）
-        } 
+        <?php
         
-        else {
-            // 認証失敗：エラーメッセージを表示するなど適切な処理を行う
-            echo "ユーザー名またはパスワードが正しくありません。566";
-            //header("Location: loguin_hp.php");
-            exit();
+            if($user["password"] == $entered_password && $user['is_admin']==1){
+                header("Location: ../admin/admin_hp.php");
+            }
+            else if ($user["password"] == $entered_password) {
+                // 認証成功：セッションにユーザー名を保存
+                $_SESSION["username"] = $user["username"];
+                //echo "ログイン成功。";
+                echo "<h2>" . "ようこそ！ " . $user["username"] . "さん" . "</h2>";
+                // ログイン成功後の処理を記述（例：別のページにリダイレクトなど）
+            } 
+            else {
+                // 認証失敗：エラーメッセージを表示するなど適切な処理を行う
+                echo "ユーザー名またはパスワードが正しくありません。";
+                //header("Location: loguin_hp.php");
+                exit();
+                
+            }
+        ?>
+
+        <h2>チケット購入</h2>
+        <p>チケットの購入の際は、<a class="form1" href="../admin/admin_ticket/admin_ticket.html">チケットの購入画面</a>へお進みください。</p>
+        <h2>チケット予約確認</h2>
+        <?php
+        
+        if($user2 == true){
             
+        // if ($user["username"] == $user2["username"] && $user["password"] == $user2["password"]){
+            $eventtype = '';
+            if ($user2['eventtype'] == "1") {
+                $eventtype = "「夢の中庭: イマジネーションの旅」";
+            } else if ($user2['eventtype'] == "2") {
+                $eventtype = "「色彩の奇跡: 光と影のダンス」";
+            } else if ($user2['eventtype'] == "3") {
+                $eventtype = "「交差する世界: 文化と遺産の対話」";
+            } else if ($user2['eventtype'] == "4") {
+                $eventtype = "「人間の軌跡: 歴史と未来の交差点」";
+            } else if ($user2['eventtype'] == "5") {
+                $eventtype = "「自然の詩: 森と水の物語」";
+            } else {
+                $eventtype = "不明";
+            }
+            echo '展示種類：' . $eventtype . "<br>";
+            echo "来場日：" . htmlspecialchars($user2["dob_c"],ENT_QUOTES) . '<br>' . PHP_EOL;
+            $time = '';
+            if ($user2['time'] == "1") {
+                $time = "09:00";
+            } else if ($user2['time'] == "2") {
+                $time = "10:00";
+            } else if ($user2['time'] == "3") {
+                $time = "11:00";
+            } else if ($user2['time'] == "4") {
+                $time = "12:00";
+            } else if ($user2['time'] == "5") {
+                $time = "13:00";
+            } else if ($user2['time'] == "6") {
+                $time = "14:00";
+            } else if ($user2['time'] == "7") {
+                $time = "15:00";
+            } else if ($user2['time'] == "8") {
+                $time = "16:00";
+            } else {
+                $time = "不明";
+            }
+            echo '<td>入場時間：' . $time . '</td>' . PHP_EOL;
+            echo '<br>';
+            $tickettype = '';
+            if ($user2['tickettype'] == "1") {
+                $tickettype = "一般（65歳未満）";
+            } else if ($user2['tickettype'] == "2") {
+                $tickettype = "学生(小学生以上)";
+            } else if ($user2['tickettype'] == "3") {
+                $tickettype = "VIP";
+            } else if ($user2['tickettype'] == "4") {
+                $tickettype = "その他";
+            } else {
+                $tickettype = "不明";
+            }
+            echo '<td>チケット種類：' . $tickettype . "<br>";
+            echo "名前:" . $user2["name"];
+            echo "<br>";
+            echo '<a  class="form" href = "../admin/admin_ticket/book_edit.php?id=' . htmlspecialchars($user2["id"],ENT_QUOTES) . '">編集</a>';  
+            echo '<a  class="form" href = "../admin/admin_ticket/book_delete.php?id=' . htmlspecialchars($user2["id"],ENT_QUOTES) . '">キャンセル</a>'; 
+        } else{
+            echo "現在予約しておりません";
         }
-    ?>
-
-    
-    <form action="../admin/admin_ticket/admin_ticket.html" method="get">
-        <button type="submit">チケット購入</button>
-    </form>
-    <form action="" method="get">
-        <button type="submit">チケット予約確認</button>
-    </form>
-    <form action="loguin_infocd.php" method="get">
-        <button type="submit">登録情報の変更</button>
-    </form>
-
-    <form action="../login/loguin_logout.html" method="get">
-        <button type="submit">ログアウト</button>
-    </form>
+        
+        ?>
+        
+        <h2>登録情報の変更</h2>
+        <?php echo "ユーザー名:" . $user["username"] . "<br>";
+        echo "メールアドレス:" . $user["mail"] . "<br>";
+        echo "パスワード:" . $user["password"] . "<br>";
+        echo "名前:" . $user["name"] . "<br>";
+        $gender = '';
+        if ($user['gender'] == "1") {
+            $gender = "男性";
+        } else if ($user['gender'] == "2") {
+            $gender = "女性";
+        } else if ($user['gender'] == "3") {
+            $gender = "無選択";
+        } else {
+            $gender = "不明";
+        }
+        echo '性別:' . $gender . "<br>";
+        
+        echo "生年月日:" . $user["dob"] . "<br>";
+        $address = '';
+        if ($user['address'] == "1") {
+            $address = "都内";
+        } else if ($user['address'] == "2") {
+            $address = "都外";
+        } else if ($user['address'] == "3") {
+            $address = "その他";
+        } else {
+            $address = "不明";
+        }
+        echo '住所:' . $address . "<br>";
+        //echo ":" . $user["address"] . "<br>";
+        
+        echo '<a  class="form" href = "loguin_infocd_edit.php?id=' . htmlspecialchars($user["id"],ENT_QUOTES) . '">編集</a>';
+        '<br>';
+        
+        
+        ?>
+        <!-- <form action="loguin_infocd_index.php" method="get">
+            <button type="submit">登録情報の変更</button>
+        </form> -->
+    <h2></h2>
+        <form action="../login/loguin_logout.html" method="get">
+            <button type="submit">ログアウト</button>
+        </form>
     </main>
+ 
 <footer>
   <div class="gotop">
       <a href="#top"><img src="../../img/top.png" alt="ページトップへ戻る"></a>

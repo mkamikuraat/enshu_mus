@@ -36,12 +36,10 @@ try {
     <title>Document</title>
 </head>
 <body>
-    ユーザー管理<br>
-    <form action="ticket_update.php?id=<?=htmlspecialchars($result["id"], ENT_QUOTES) ?>" method="post">
-        ユーザー名:<input type="text" id="username" name="username" value="<?php echo htmlspecialchars($result["username"], ENT_QUOTES) ?>"><br>
-        パスワード:<input type="password" id="password" name="password" value="<?php echo htmlspecialchars($result["password"], ENT_QUOTES) ?>" required><br>
+    <h2>チケット予約の変更</h2>
+    <form action="book_update.php" method="post">
         展示種類:
-        <select name="eventtype" id="eventtype"  onchange="setDateRestriction()">
+        <select name="eventtype" id="eventtype" onchange="setDateRestriction()">
           <option hidden>選択してください</option>
           <option value="1" name="eventtype" <?php if ($result["eventtype"] == 1) echo "selected" ?>>「夢の中庭: イマジネーションの旅」</option>
           <option value="2" name="eventtype" <?php if ($result["eventtype"] == 2) echo "selected" ?>>「色彩の奇跡: 光と影のダンス」</option>

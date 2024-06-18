@@ -18,7 +18,15 @@
     <h1>チケット購入</h1>
     
     <form action="ticket_add.php" method="post">
-      
+      <table>
+        <tr>
+          <p>ユーザー名:<input type="text" name="username"></p>
+        </tr>
+        <tr>
+          <p>パスワード:<input type="password" id="password" name="password" required></p>
+          <p>パスワード確認:<input type="password" id="confirm_password" name="confirm_password" required></p>
+        </tr>
+      </table>
         <table>
         展示種類:
             <select name="eventtype" id="eventtype" onchange="setDateRestriction()">
@@ -80,7 +88,8 @@
         </select>
       </table>
         
-        <input type="submit" value="前に戻る">
+      <a href="javascript:history.back()">前のページに戻る</a>
+      <!-- <input type="submit" value="前に戻る"> -->
         <input type="submit" value="確認画面に進む">
     </form>
     

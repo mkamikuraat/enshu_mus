@@ -3,10 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body { background:#f0f0f0; }
+        a{
+          text-decoration: none;
+          color: inherit;
+        }
+        #title {color:#253958; font-size: 50px;text-align: center;}
+        main h2 {border-bottom: 2px solid #253958;}
+        .nav ul {margin: 30px 0 0 0; padding: 0; list-style-type: none;
+          display: flex; justify-content: center; gap: 40px;}
+        .map {
+          text-align: center;
+          }
+          .map img{
+            width: 80vw;
+          }
+        .gotop {
+          text-align: center; display: flex; justify-content: center;}
+        .gotop a img{ width: 100px;}
+        .copyright {
+            padding-top: 75px;
+            padding-bottom: 75px;
+            background-color: #253958;
+            color: #ffffff;
+            text-align: center;
+        }
+      </style>
     <title>Document</title>
 </head>
 <body>
-
-    <p>送信しました</p>
+    <header>
+        <h1 id="title"> <a href="base.tmpl">神倉美術館</a></h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="./event/index.php">展覧会・イベント</a></li>
+                <li><a href="./ticket_hp.tmpl">チケット購入</a></li>
+                <li><a href="access_hp.tmpl">アクセス</a></li>
+                <li><a href="../login/loguin_hp.php">ログイン画面</a></li>
+                <li><a href="fqa_hp.tmpl">お問い合わせ</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <main>
+        <p>送信しました</p>
+    </main>
+    <footer>
+        <div class="gotop">
+            <a href="#top"><img src="../../img/top.png" alt="ページトップへ戻る"></a>
+        </div>
+        <div>
+            <p class="copyright">&copy; KAMIKURA MUSEUM</p>
+        </div>
+      </footer>
 </body>
 </html>

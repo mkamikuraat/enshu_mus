@@ -20,6 +20,9 @@ try {
     echo "確認画面" . "<br>";
     echo "ID：" . htmlspecialchars($result["id"],ENT_QUOTES) . '<br>' . PHP_EOL;
     //echo "展示種類：" . htmlspecialchars($result["eventtype"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    echo "ユーザー名：" . htmlspecialchars($result["username"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    // echo "メールアドレス：" . htmlspecialchars($result["mail"],ENT_QUOTES) . '<br>' . PHP_EOL;
+    echo "パスワード：" . htmlspecialchars($result["password"],ENT_QUOTES) . '<br>' . PHP_EOL;
     $eventtype = '';
         if ($result['eventtype'] == "1") {
             $eventtype = "「夢の中庭: イマジネーションの旅」";
@@ -106,4 +109,5 @@ try {
     echo "エラー発生：" . htmlspecialchars($e->getMessage(), ENT_QUOTES) . '<br>';
     exit;
 }
+
 ?>

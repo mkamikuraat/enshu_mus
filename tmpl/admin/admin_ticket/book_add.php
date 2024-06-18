@@ -7,7 +7,7 @@ $pass = 'testpass';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["eventtype"]) && isset($_POST["dob_c"]) && isset($_POST["time"]) && isset($_POST["tickettype"]) && isset($_POST["name"]) && isset($_POST["gender"]) && isset($_POST["dob"]) && isset($_POST["address"])) {
-        
+        //$id = (int)$_POST["id"];
         $eventtype = (int)$_POST["eventtype"];
         $dob_c = $_POST["dob_c"];
         $time = (int)$_POST["time"];
@@ -16,13 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $gender = (int)$_POST["gender"];
         $dob = $_POST["dob"];
         $address = (int)$_POST["address"];
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+        //$flag = (int)$_POST["flag"];
 
         try {
             $dbh = new PDO($dsn, $user,$pass);
             $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO ticket (eventtype,dob_c,time,tickettype,name,gender,dob,address,username,password) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO ticket (eventtype,dob_c,time,tickettype,name,gender,dob,address) VALUES (?,?,?,?,?,?,?,?)";
             $stmt = $dbh->prepare($sql);
             $stmt->bindValue(1,$eventtype, PDO::PARAM_INT);
             $stmt->bindValue(2,$dob_c, PDO::PARAM_STR);
@@ -32,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindValue(6,$gender, PDO::PARAM_INT);
             $stmt->bindValue(7,$dob, PDO::PARAM_STR);
             $stmt->bindValue(8,$address, PDO::PARAM_INT);
-            $stmt->bindValue(9,$username, PDO::PARAM_INT);
-            $stmt->bindValue(10,$password, PDO::PARAM_INT);
+            //$stmt->bindValue(9,$flag, PDO::PARAM_INT);
+            //$stmt->bindValue(10,$id, PDO::PARAM_INT);
             $stmt->execute();
             $dbh = null;
             echo "登録完了しました";

@@ -3,10 +3,11 @@ $dsn = 'mysql:host=localhost; dbname=mus; charset=utf8';
 $user = 'testuser';
 $pass = 'testpass';
 
-if (empty($_GET["id"])) {
-    echo "IDが正しく入力してください";
-    exit;
-}
+// if (!isset($_GET["id"])) {
+//     echo "IDが正しく入力してください";
+//     exit;
+// }
+error_reporting(E_ERROR | E_PARSE); // E_ERROR と E_PARSE のみを表示し、E_WARNING などは非表示にする
 
 
 $eventtype = $_POST["eventtype"];
@@ -17,14 +18,14 @@ $gender = (int)$_POST["gender"];
 $dob = $_POST["dob"];
 $address = (int)$_POST["address"];
 $tickettype = $_POST["tickettype"];
-$id = (int)$_GET["id"]; 
 $username = $_POST["username"];
 $password = $_POST["password"];
+$id = (int)$_GET["id"]; 
 //$flag = $_POST["flag"];
 try {
     $dbh = new PDO($dsn, $user, $pass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    $sql = 'UPDATE ticket SET eventtype = ?, dob_c = ?, time = ?, name = ?, gender = ?, dob = ?, address = ?, tickettype =?, username=?, password=? where id = ?';
+    $sql = 'UPDATE ticket SET eventtype = ?, dob_c = ?, time = ?, name = ?, gender = ?, dob = ?, address = ?, tickettype =?,username=?,password=? where id = ?';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(1, $eventtype, PDO::PARAM_STR);
     $stmt->bindValue(2, $dob_c, PDO::PARAM_STR);
@@ -34,12 +35,12 @@ try {
     $stmt->bindValue(6, $dob, PDO::PARAM_STR);
     $stmt->bindValue(7, $address, PDO::PARAM_INT);
     $stmt->bindValue(8, $tickettype, PDO::PARAM_STR);
-    $stmt->bindValue(9, $username, PDO::PARAM_STR);
-    $stmt->bindValue(10, $password, PDO::PARAM_STR);
-    $stmt->bindValue(11, $id, PDO::PARAM_INT);
+    $stmt->bindValue(9, $username, PDO::PARAM_INT);
+    $stmt->bindValue(10, $password, PDO::PARAM_INT);
+    $stmt->bindValue(11, $id, PDO::PARAM_INT); 
     $stmt->execute();
     $dbh = null;
-    echo "ID:" . htmlspecialchars($id, ENT_QUOTES) . "の更新が完了しました";
+    echo "ユーザー名:" . htmlspecialchars($name, ENT_QUOTES) . "の更新が完了しました";
 
     
 }catch(PDOException $e){
@@ -62,6 +63,6 @@ try {
 </head>
 <body>
 <br>    
-<a href="ticket_index.php">ユーザー管理一覧に戻る</a>
+<a href="../../login/loguin_hp.php">戻る</a>
 </body>
 </html>
