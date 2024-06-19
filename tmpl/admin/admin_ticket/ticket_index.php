@@ -12,7 +12,7 @@
     <h1>チケット予約管理一覧</h1>
     <a href="../admin_hp.php">管理者画面に戻る</a>
     <br>
-    <a href="admin_ticket.html">ユーザーの新規登録</a>
+    <a href="admin_ticket.html">チケット登録</a>
 <?php
     # データベースに接続
     $dsn = 'mysql:host=localhost; dbname=mus; charset=utf8';
@@ -29,15 +29,15 @@ try {
     
     echo '<table>' . PHP_EOL;//PHP_EOLは改行コード。
     echo '<tr>' . PHP_EOL;
+    
     echo '<td>ID</td><td>展示種類</td><td>チケット種類</td>' . PHP_EOL;
     echo '</tr>' . PHP_EOL;
-
+    
     foreach ($result as $row) {
         
         if ($row['flag'] == 1) {
             continue; // この行をスキップして次のループに進む
         }
-
         echo '<tr>' . PHP_EOL;
         echo '<td>' . htmlspecialchars($row['id'], ENT_QUOTES)  . '</td>' . PHP_EOL;
         $eventtype = '';

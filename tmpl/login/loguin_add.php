@@ -35,3 +35,20 @@ try {
     exit;
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body { background:#f0f0f0; }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <a href="loguin_hp.php">ログイン画面に戻る</a><br>
+    <a href="loguin_logout.html">ログアウト</a><br>
+    <a href="../HP/base.tmpl">TOP</a>
+</body>
+</html>

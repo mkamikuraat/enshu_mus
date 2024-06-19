@@ -32,11 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindValue(6,$gender, PDO::PARAM_INT);
             $stmt->bindValue(7,$dob, PDO::PARAM_STR);
             $stmt->bindValue(8,$address, PDO::PARAM_INT);
-            $stmt->bindValue(9,$username, PDO::PARAM_INT);
-            $stmt->bindValue(10,$password, PDO::PARAM_INT);
+            $stmt->bindValue(9,$username, PDO::PARAM_STR);
+            $stmt->bindValue(10,$password, PDO::PARAM_STR);
             $stmt->execute();
             $dbh = null;
-            echo "登録完了しました";
+            echo "予約完了しました";
 
         }catch (PDOException $e){
             echo "エラー発生：" . htmlspecialchars($e->getMessage(), ENT_QUOTES) . '<br>';
@@ -60,6 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Document</title>
 </head>
 <body>
-    <a href="ticket_index.php">チケット予約管理一覧に戻る</a>
+    <a href="../../login/loguin_hp.php">ログイン画面に戻る</a>
 </body>
 </html>

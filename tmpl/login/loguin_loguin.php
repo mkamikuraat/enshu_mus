@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <nav class="nav">
             <ul>
                 <li><a href="../HP/event/index.php">展覧会・イベント</a></li>
-                <li><a href="../HP/ticket_hp.tmpl">チケット購入</a></li>
+                <li><a href="../HP/ticket_hp.tmpl">チケット予約</a></li>
                 <li><a href="../HP/access_hp.tmpl">アクセス</a></li>
                 <li><a href="loguin_hp.php">ログイン画面</a></li>
                 <li><a href="../HP/fqa_hp.tmpl">お問い合わせ</a></li>
@@ -168,8 +168,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<td>チケット種類：' . $tickettype . "<br>";
             echo "名前:" . $user2["name"];
             echo "<br>";
-            echo '<a  class="form" href = "../admin/admin_ticket/book_edit.php?id=' . htmlspecialchars($user2["id"],ENT_QUOTES) . '">編集</a>';  
-            echo '<a  class="form" href = "../admin/admin_ticket/book_delete.php?id=' . htmlspecialchars($user2["id"],ENT_QUOTES) . '">キャンセル</a>'; 
+            echo '<a  class="form" href = "../admin/admin_ticket/book_edit.php?id=' . htmlspecialchars($user2["id"],ENT_QUOTES) . '" method="post">編集</a>';  
+            echo '<input class="form" type="hidden" name="username" value="$user["username"]">';
+            echo '<input class="form" type="hidden" name="password" value="$user["password"]">';
+            //echo '<a  class="form" href = "../admin/admin_ticket/book_delete.php?id=' . htmlspecialchars($user2["id"],ENT_QUOTES) . '">キャンセル</a>'; 
         } else{
             echo "現在予約しておりません";
         }

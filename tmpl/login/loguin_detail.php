@@ -62,3 +62,19 @@ try {
     exit;
 }
 ?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+    body { font-size:100%; background:#f0f0f0; }
+ 
+  
+  </style>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

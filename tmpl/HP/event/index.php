@@ -28,6 +28,7 @@
             margin-bottom: 40px;
             padding: 10px;
         }
+        .form {color: rgba(230, 89, 34, 0.795);}
     </style>
     
 </head>
@@ -37,7 +38,7 @@
         <nav class="nav">
             <ul>
                 <li><a href="index.php">展覧会・イベント</a></li>
-                <li><a href="../ticket_hp.tmpl">チケット購入</a></li>
+                <li><a href="../ticket_hp.tmpl">チケット予約</a></li>
                 <li><a href="../access_hp.tmpl">アクセス</a></li>
                 <li><a href="../../login/loguin_hp.php">ログイン画面</a></li>
                 <li><a href="../fqa_hp.tmpl">お問い合わせ</a></li>
@@ -56,7 +57,9 @@
             <tr>
                 <td>夢の中で庭が躍る。いざ！イマジネーションの旅へ</td>
             </tr>
-            
+            <tr>
+                <td><a class="form" href="../../admin/admin_ticket/admin_ticket.html">チケット予約</a></td>
+            </tr>
         </table>
     </div>
     <div class="div">
@@ -68,7 +71,9 @@
             <tr>
                 <td>見えることは奇跡です</td>
             </tr>
-            
+            <tr>
+                <td><a class="form" href="../../admin/admin_ticket/admin_ticket.html">チケット予約</a></td>
+            </tr>
         </table>
     </div>
     <div class="div">
@@ -80,7 +85,9 @@
             <tr>
                 <td>時代は積もっていく。だが、語られることはない。</td>
             </tr>
-            
+            <tr>
+                <td><a class="form" href="../../admin/admin_ticket/admin_ticket.html">チケット予約</a></td>
+            </tr>
         </table>
     </div>
     <div class="div">
@@ -92,7 +99,9 @@
             <tr>
                 <td>人間が語る、過去と未来と現在</td>
             </tr>
-            
+            <tr>
+                <td><a class="form" href="../../admin/admin_ticket/admin_ticket.html">チケット予約</a></td>
+            </tr>
         </table>
     </div>
     <div class="div">
@@ -104,7 +113,9 @@
             <tr>
                 <td>自然の中で詩は生まれる</td>
             </tr>
-            
+            <tr>
+                <td><a class="form" href="../../admin/admin_ticket/admin_ticket.html">チケット予約</a></td>
+            </tr>
         </table>
     </div>
     <h2>今後の展示・イベント一覧</h2>

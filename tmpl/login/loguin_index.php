@@ -58,12 +58,13 @@ try {
         echo '|<a href = "loguin_edit.php?id=' . htmlspecialchars($row["id"],ENT_QUOTES) . '">編集</a>' . PHP_EOL;
         echo '|<a href = "loguin_delete.php?id=' . htmlspecialchars($row["id"],ENT_QUOTES) . '">削除</a>' . PHP_EOL;
         echo '</td>' . PHP_EOL;
-        echo '</tr>' . PHP_EOL; 
+        echo '</tr>' . PHP_EOL;
     }
     echo '</table>' . PHP_EOL;
     //print_r($result);
     $dbn = null;
     //echo '<a href="loguin_index.php">新規会員登録ページに戻る</a>';
+    
 } catch (PDOException $e){
     echo "エラー発生：" . htmlspecialchars($e ->getMessage(), ENT_QUOTES) . '<br>';
     exit;

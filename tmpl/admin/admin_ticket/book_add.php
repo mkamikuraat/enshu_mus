@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //$stmt->bindValue(10,$id, PDO::PARAM_INT);
             $stmt->execute();
             $dbh = null;
-            echo "登録完了しました";
+            echo "予約完了しました";
 
         }catch (PDOException $e){
             echo "エラー発生：" . htmlspecialchars($e->getMessage(), ENT_QUOTES) . '<br>';
@@ -59,6 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Document</title>
 </head>
 <body>
-    <a href="ticket_index.php">チケット予約管理一覧に戻る</a>
+    <a href="../../login/loguin_hp.php">ログイン画面に戻る</a>
 </body>
 </html>

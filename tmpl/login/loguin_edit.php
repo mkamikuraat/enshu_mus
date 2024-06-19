@@ -32,6 +32,7 @@ try {
 <body>
     ユーザー管理<br>
     <form action="loguin_update.php?id=<?=htmlspecialchars($result["id"], ENT_QUOTES) ?>" method="post">
+        <input type="hidden" name="id" value="<?=htmlspecialchars($result["id"], ENT_QUOTES) ?>">
         ユーザー名:<input type="text" name="username" value="<?php echo htmlspecialchars($result["username"], ENT_QUOTES) ?>"><br>
         メールアドレス:<input type="text" name="mail" value="<?php echo htmlspecialchars($result["mail"], ENT_QUOTES) ?>"><br>
         パスワード:<input type="password" id="password" name="password" value="<?php echo htmlspecialchars($result["password"], ENT_QUOTES) ?>" required><br>

@@ -38,6 +38,7 @@ try {
             $eventtype = "不明";
         }
         echo '<td>展示種類：' . $eventtype . '</td>' . PHP_EOL;
+        echo "<br>";
     echo "来場日：" . htmlspecialchars($result["dob_c"],ENT_QUOTES) . '<br>' . PHP_EOL;
     //echo "入場時間：" . htmlspecialchars($result["time"],ENT_QUOTES) . '<br>' . PHP_EOL;
     $time = '';
@@ -111,3 +112,17 @@ try {
 }
 
 ?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body {background:#f0f0f0; }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

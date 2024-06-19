@@ -7,9 +7,13 @@ $pass = 'testpass';
 //     echo "IDが正しく入力してください";
 //     exit;
 // }
-error_reporting(E_ERROR | E_PARSE); // E_ERROR と E_PARSE のみを表示し、E_WARNING などは非表示にする
-
-
+//error_reporting(E_ERROR | E_PARSE); // E_ERROR と E_PARSE のみを表示し、E_WARNING などは非表示にする
+$username = isset($_POST['username']) ? $_POST['username'] : '';
+$password = isset($_POST['password']) ? $_POST['password'] : '';
+$id = isset($_POST['id']) ? $_POST['id'] : '';
+// var_dump($_POST);
+$username = $_POST["username"];
+$password = $_POST["password"];
 $eventtype = $_POST["eventtype"];
 $dob_c = $_POST["dob_c"];
 $time = $_POST["time"];
@@ -18,14 +22,12 @@ $gender = (int)$_POST["gender"];
 $dob = $_POST["dob"];
 $address = (int)$_POST["address"];
 $tickettype = $_POST["tickettype"];
-$username = $_POST["username"];
-$password = $_POST["password"];
-$id = (int)$_GET["id"]; 
+//$id = (int)$_GET["id"]; 
 //$flag = $_POST["flag"];
 try {
     $dbh = new PDO($dsn, $user, $pass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    $sql = 'UPDATE ticket SET eventtype = ?, dob_c = ?, time = ?, name = ?, gender = ?, dob = ?, address = ?, tickettype =?,username=?,password=? where id = ?';
+    $sql = 'UPDATE ticket SET eventtype = ?, dob_c = ?, time = ?, name = ?, gender = ?, dob = ?, address = ?, tickettype = ?, username = ?, password = ? where id = ?';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(1, $eventtype, PDO::PARAM_STR);
     $stmt->bindValue(2, $dob_c, PDO::PARAM_STR);
@@ -35,13 +37,13 @@ try {
     $stmt->bindValue(6, $dob, PDO::PARAM_STR);
     $stmt->bindValue(7, $address, PDO::PARAM_INT);
     $stmt->bindValue(8, $tickettype, PDO::PARAM_STR);
-    $stmt->bindValue(9, $username, PDO::PARAM_INT);
-    $stmt->bindValue(10, $password, PDO::PARAM_INT);
+    $stmt->bindValue(9, $username, PDO::PARAM_STR);
+    $stmt->bindValue(10, $password, PDO::PARAM_STR);
     $stmt->bindValue(11, $id, PDO::PARAM_INT); 
     $stmt->execute();
     $dbh = null;
-    echo "ユーザー名:" . htmlspecialchars($name, ENT_QUOTES) . "の更新が完了しました";
-
+    // echo  htmlspecialchars($username, ENT_QUOTES) . "更新が完了しました";
+    echo   "{$username}さんの更新が完了しました";
     
 }catch(PDOException $e){
     echo "エラー発生：" . htmlspecialchars($e->getMessage(), ENT_QUOTES) . '<br>';

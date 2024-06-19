@@ -82,7 +82,7 @@
         <nav class="nav">
             <ul>
                 <li><a href="../HP/event/index.php">展覧会・イベント</a></li>
-                <li><a href="../HP/ticket_hp.tmpl">チケット購入</a></li>
+                <li><a href="../HP/ticket_hp.tmpl">チケット予約</a></li>
                 <li><a href="../HP/access_hp.tmpl">アクセス</a></li>
                 <li><a href="loguin_hp.php">ログイン画面</a></li>
                 <li><a href="../HP/fqa_hp.tmpl">お問い合わせ</a></li>

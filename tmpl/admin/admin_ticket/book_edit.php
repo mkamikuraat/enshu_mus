@@ -7,6 +7,7 @@ if (empty($_GET["id"])){
     exit;
 }
 $id = (int)$_GET["id"];
+
 try {
     $dbh = new PDO($dsn, $user, $pass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -16,6 +17,7 @@ try {
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     $dbh = null;
+    // var_dump($result);
 }catch (PDOException $e) {
     echo "エラー発生：" . htmlspecialchars($e->getMessage(), ENT_QUOTES) . '<br>';
     exit;
@@ -38,6 +40,9 @@ try {
 <body>
     <h2>チケット予約の変更</h2>
     <form action="book_update.php" method="post">
+        <input type="hidden" name="id" value="<?=htmlspecialchars($result["id"], ENT_QUOTES) ?>" method="post">
+        <input type="hidden" name="username" id="username" value="<?php echo $result['username'];?>">
+        <input type="hidden" name="password" id="password" value="<?php echo $result['password'];?>">
         展示種類:
         <select name="eventtype" id="eventtype" onchange="setDateRestriction()">
           <option hidden>選択してください</option>
@@ -90,7 +95,7 @@ try {
           <option value="3" name="place[]" <?php if ($result["address"] == 3) echo "selected" ?>>その他</option>
         </select>
         <br>
-      <input type="submit" name="send" value="送信">
+      <input type="submit" name="send" value="保存">
       <input type="hidden" name="mode" value="register">
     </form>
 </body>

@@ -7,8 +7,8 @@ if (empty($_GET["id"])) {
     echo "IDが正しく入力してください";
     exit;
 }
-
-$id = (int)$_GET["id"]; 
+// $id( = (int)$_GET["id"]; 
+$id = (int)$_POST["id"];
 $username = $_POST["username"];
 $mail = $_POST["mail"];
 $password = $_POST["password"];
@@ -21,7 +21,7 @@ $terms = $_POST["terms"];
 try {
     $dbh = new PDO($dsn, $user, $pass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    $sql = 'UPDATE users SET username = ?, mail = ?, password = ?, name = ?, gender = ?, dob = ?, address = ?, terms =?, flag = ? where id = ?';
+    $sql = 'UPDATE users SET username = ?, mail = ?, password = ?, name = ?, gender = ?, dob = ?, address = ?, terms =? where id = ?';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(1, $username, PDO::PARAM_STR);
     $stmt->bindValue(2, $mail, PDO::PARAM_STR);
@@ -32,7 +32,8 @@ try {
     $stmt->bindValue(7, $address, PDO::PARAM_INT);
     $stmt->bindValue(8, $terms, PDO::PARAM_STR);
     $stmt->bindValue(9, $id, PDO::PARAM_INT);
-    //$stmt->bindValue(10, $flag, PDO::PARAM_INT);$stmt->execute();
+    //$stmt->bindValue(10, $flag, PDO::PARAM_INT);
+    $stmt->execute();
     $dbh = null;
     echo "ID:" . htmlspecialchars($id, ENT_QUOTES) . "の更新が完了しました";
 

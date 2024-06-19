@@ -27,6 +27,12 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body { font-size:80%; background:#f0f0f0; }
+        table{ border-collapse:collapse; margin:10px 0; border-right:1px solid #000; border-bottom:1px solid #000;}
+        th,td{ border-left:1px solid #000; border-top:1px solid #000;padding:5px;}
+        th{background-color: #000;}
+    </style>
     <title>Document</title>
 </head>
 <body>
